@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+  <html lang="en-us">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:black;">
+    <a class="navbar-brand" href="#" >
+      <img src="{% static 'logo1.png' %}" style="width:50px;">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" style="font-size:27px;color:white">GeekStats &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      </li>
+      
+    </ul>
+    <form class="form-inline" method="get" >
+        <input class="form-control mr-sm-2" type="text" name="username" placeholder="Search User">
+        <button class="btn btn-info" type="submit">Search</button>
+      </form>
+  </nav>
+      
+      <br>
+      <div style='margin-left:20px;'>
+      {% if user %}
+      <img src="https://avatars3.githubusercontent.com/u/{{user.id}}?v=4" style="width:250px;height:250px;border-radius:50%;">
+      <br>
+      <br>
+      <h3>{{user.name}}</h3>
+      <h6 style="color:rgb(94, 92, 94)">{{user.login}}</h6>
+      <p>{{user.bio}}</p>
+      <p style="font-size:12px;">{{user.followers}} followers • {{user.following}} following</p>
+      
+        <p>{{ user.public_repos }} repositories.</p>
+      
+        {% endif %}
+
+
+      <hr>
+      </div>
+    </body>
+  </html>
