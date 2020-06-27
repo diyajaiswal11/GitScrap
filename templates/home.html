@@ -26,7 +26,7 @@
       
       <br>
       <div style='margin-left:20px;'>
-      {% if user %}
+      {% if user.id %}
       <img src="https://avatars3.githubusercontent.com/u/{{user.id}}?v=4" style="width:250px;height:250px;border-radius:50%;">
       <br>
       <br>
@@ -34,11 +34,15 @@
       <h6 style="color:rgb(94, 92, 94)">{{user.login}}</h6>
       <p>{{user.bio}}</p>
       <p style="font-size:12px;">{{user.followers}} followers • {{user.following}} following</p>
-      
-        <p>{{ user.public_repos }} repositories.</p>
-      
+        <p>{{ user.public_repos }} repositories</p>
+      {% else %}
+      <p>No such user exists</p>
         {% endif %}
 
+        {% for repo in repos %}
+        <p>{{ repo.name }} - {{ repo.language }}</p>
+        
+        {% endfor %}
 
       <hr>
       </div>
