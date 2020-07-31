@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
     margin-right: auto;
@@ -8,11 +9,10 @@ body {
     text-align: center;
     background-color: #190124;
     display: flex;
-    
     letter-spacing: 2px;
     justify-content: center;
-    min-height: 100vh;
-    padding:10%;
+    /* overflow: hidden; */
+    padding:20px 20px;
   }
   
 .box:before,
@@ -23,44 +23,46 @@ body {
     content: '';
     left: -2px;
     position: absolute;
+    align-items: center;
+    text-align: center;
     right: -2px;
     top: -2px;
 }
 
-  .box:before {
-      z-index: -1;
-  }
-  
-  .box {
-      align-items: center;
-      text-align: center;
-      background-color: #030b25;
-      display: flex;
-      height: 70%;
-      justify-content: center;
-      position: relative;
-      width: 60%;
-      padding:22px;
-  }
-  
-  .box:after {
-      filter: blur(20px);
-      z-index: -2;
-  }
-  
-  .content {
-      color: #ffffff;
-      padding: 20px;
-  }
+.box:before {
+    z-index: -1;
+}
+
+.box {
+    align-items: center;
+    text-align: center;
+    background-color: #030b25;
+    justify-content: center;
+    position: relative;
+    width: 60%;
+    padding:22px; 
+}
+
+.box:after {
+    filter: blur(20px);
+    z-index: -2;
+}
+
+.content {
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+flex-direction: column;
+}
 
 
 
 .button-design {
-    padding:10px;
-    background-color: #cf0191;
-    border-radius: 5px;
-    width: 250px;
-    color:white;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+padding:5px;
+background-color: #cf0191;
+border-radius: 5px;
+width: 100px;
+color:white;
+font-size: 20px;
+font-family: Arial, Helvetica, sans-serif;
 }
