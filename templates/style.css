@@ -3,22 +3,37 @@
     box-sizing: border-box;
     margin-right: auto;
     margin-left: auto;
+   
   }
   
 body {
     text-align: center;
     background-color: #190124;
-    display: flex;
     letter-spacing: 2px;
     justify-content: center;
-    /* overflow: hidden; */
-    padding:20px 20px;
-  }
+    padding-top: 2.4rem;
+    padding-bottom: auto;
+   
+}
+
+.image {
+    margin-left:auto;
+    margin-right: auto;
+    width: 305px;
+    height:285px; 
+}
+
+.heading {
+    font-size: 60px;
+    font-family: 'Passion One';
+    margin-top: 8px;
+}
   
 .box:before,
 .box:after {
     background-color: #ffffff;
     background-image: linear-gradient(235deg, #0306b8, #46096e,#9b006c );
+    background-size: cover;
     bottom: -2px;
     content: '';
     left: -2px;
@@ -35,12 +50,14 @@ body {
 
 .box {
     align-items: center;
-    text-align: center;
     background-color: #030b25;
     justify-content: center;
     position: relative;
-    width: 60%;
-    padding:22px; 
+    width: 75%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top:5px; 
+    padding-bottom: 5px;
 }
 
 .box:after {
@@ -52,17 +69,15 @@ body {
     color: #ffffff;
     padding: 20px;
     display: flex;
-flex-direction: column;
+    flex-direction: column;
 }
 
-
-
 .button-design {
-padding:5px;
-background-color: #cf0191;
-border-radius: 5px;
-width: 100px;
-color:white;
-font-size: 20px;
-font-family: Arial, Helvetica, sans-serif;
+    background-color: #cf0191;
+    border-radius: 5px;
+    color:white;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
