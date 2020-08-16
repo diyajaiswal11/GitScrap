@@ -1,0 +1,16 @@
+.col-sm-3 {
+    background-color: bisque;
+    background-size:cover;
+    background-size:100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.col-sm-9 {
+    background-color: royalblue;
+    
+}
+
+.body {
+    background-color: #190124;
+}

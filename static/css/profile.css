@@ -1,0 +1,17 @@
+.card-design {
+    background-color: #d8d8d8;
+}
+
+
+.button-design {
+    background-color: #cf0191;
+    border-radius: 5px;
+    color:white;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.button-design:hover {
+    color:#e0e0e0;
+    background-color: #a30373;
+  }
