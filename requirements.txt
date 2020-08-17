@@ -5,7 +5,7 @@ attrs==19.3.0
 autobahn==20.4.3
 Automat==20.2.0
 backcall==0.1.0
-bleach==3.1.0
+bleach==3.1.4
 bootstrap4==0.1.0
 boto3==1.13.1
 botocore==1.16.26
