@@ -11,14 +11,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-  <title>GitStats</title>
+  <title>GitScrap</title>
+  <link rel = "icon" href =  
+  "{% static 'css/octocat.png' %}" 
+          type = "image/x-icon"> 
 </head>
 
 <body>
   <div class="box">
     <div class="content">
       <img src="{% static 'css/octocat.png' %}" class="image img-fluid">
-      <h2 class="heading">GitStats</h2>
+      <h2 class="heading">GitScrap</h2>
       <p>Fetches your Skills and Repositories from your Github Profile.
       </p>
       <h5>Enter your GitHub Username: </h5>
@@ -27,11 +30,12 @@
         <div class="form-group">
           <input type="text" class="form-control mx-1" placeholder="Username" name="username">
         </div>
-        <button type="submit" class=" btn button-design" href="{% url 'detail' %}" >Submit</button>
+        <button type="submit" class=" btn button-design" href="{% url 'detail' %}">Submit</button>
       </form>
 
     </div>
   </div>
+ 
 </body>
 
 </html>

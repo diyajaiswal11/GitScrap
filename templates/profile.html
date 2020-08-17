@@ -10,84 +10,106 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}" />
 
-  <title>GitStats</title>
+  <title>GitScrap</title>
+  <link rel = "icon" href =  
+"{% static 'css/octocat.png' %}" 
+        type = "image/x-icon"> 
 </head>
 
 <body style="background-color: #190124;">
+  <nav class="nav" style="background-color:#c4c4c4">
+    <img src="{% static 'css/octocat.png' %}" alt="Logo" style="width:50px;height:50px;margin-left:15px;margin-top:7px">
+    <h1 href="{% url 'home' %}" class="heading">GitScrap</h1>
+
+  </nav>
+  </div>
   <div class="container-fluid">
-    <div class="card mb-3 mt-3" style="max-width: 540px;">
+    <div class="card mb-3 mt-5 mx-auto box" style="max-width: 640px;">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="https://avatars3.githubusercontent.com/u/{{user.id}}?v=4" class="card-img" alt="...">
+          <img src="https://avatars3.githubusercontent.com/u/{{user.id}}?v=4" class="card-img img-fluid" width="280"
+            height="280">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h4 class="text-light">{{ user.name }}</h4>
+            <p class="card-text text-light">{{ user.login }}</p>
+            {% if user.bio is not None %}
+            <h6 class="card-text text-light">{{ user.bio }}</h6>
+            {% endif %}
+            <p class="card-text text-light"><b>{{ user.followers }}</b> followers <b>{{ user.following }}</b> following
+            </p>
+            {% if user.company is not None %}
+            <p class="card-text text-light"><svg class="octicon octicon-organization "  viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" d="M1.5 14.25c0 .138.112.25.25.25H4v-1.25a.75.75 0 01.75-.75h2.5a.75.75 0 01.75.75v1.25h2.25a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25h-8.5a.25.25 0 00-.25.25v12.5zM1.75 16A1.75 1.75 0 010 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 00.25-.25V8.285a.25.25 0 00-.111-.208l-1.055-.703a.75.75 0 11.832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0114.25 16h-3.5a.75.75 0 01-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 01-.75-.75V14h-1v1.25a.75.75 0 01-.75.75h-3zM3 3.75A.75.75 0 013.75 3h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 3.75zM3.75 6a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM3 9.75A.75.75 0 013.75 9h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 9.75zM7.75 9a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM7 6.75A.75.75 0 017.75 6h.5a.75.75 0 010 1.5h-.5A.75.75 0 017 6.75zM7.75 3a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"></path></svg> {{ user.company }} </p>
+            {% endif %}
+            {% if user.location is not None %}
+            <p class="card-text text-light" > <svg class="octicon octicon-location" style="display: inline-block;" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" ><path style="vertical-align: top;" fill="#fff" fill-rule="evenodd" d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z"></path></svg> {{  user.location }}</p>
+            {% endif %}
+            {% if user.blog is not None %}
+            <p class="card-text text-light" > <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill='#fff' fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg> {{  user.blog }}</p>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
   </div>
-    
-  
-    <div class="container-fluid my-5">
-      <div class="row mb-2 mx-1">
-        {% for repo in repos %}
-          <div class="col-md-4">
-              <div
-                  class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                  <div class="col p-4 d-flex flex-column position-static card-design ">
-                      <h5 class="mb-0 text-light">{{ repo.name }}</h5>
-                      <div class="mb-1 text-muted">{{ repo.language }}</div>
-                      
-                      <a href="https://github.com/{{user.login}}/{{repo.name}}" class=" btn button-design">Visit Repo</a>
-                  </div>
-              </div>
+  <br>
+  <h1 class="text-light text-center">Repositories</h1>
+  <div class="container-fluid my-5">
+    <div class="row mb-2 mx-1">
+      {% for repo in repos %}
+      <div class="col-md-4">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static card-design ">
+            <h4 class="mb-0 text-dark" style="font-size: 25px;">{{ repo.name }}</h4>
+
+            <p class="mb-1 text-muted" style="font-size: 17px;">{{ repo.language }}</p>
+
+            <p>
+              <svg mr="1" height="16" class="octicon octicon-star mr-1" version="1.1" width="16" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z">
+                </path>
+              </svg>{{ repo.stargazers_count }} &nbsp;
+              <svg mr="1" height="16" class="octicon octicon-repo-forked mr-1" version="1.1" width="16"
+                aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z">
+                </path>
+              </svg>{{ repo.forks }}
+
+            </p>
+
+            <a href="https://github.com/{{user.login}}/{{repo.name}}" class=" btn button-design">Visit Repo</a>
           </div>
-          {% endfor %}
+        </div>
       </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div style="background-color:#c4c4c4;left: 0;bottom: 0;width: 100%;text-align: center; margin-top:10px;position:fixed;">
+    <span class="text-dark"><b>Made with &#10084;&#65039; by Diya</b></span>
   </div>
 
 
 
-    <!--
-    <div style='margin-left:20px;'>
-      {% if user.id %}
-      <img src="https://avatars3.githubusercontent.com/u/{{user.id}}?v=4" style="width:250px;height:250px;border-radius:50%;">
-      <br>
-      <br>
-      <h3>{{user.name}}</h3>
-      <h6 style="color:rgb(94, 92, 94)">{{user.login}}</h6>
-      <p>{{user.bio}}</p>
-      <p style="font-size:12px;">{{user.followers}} followers • {{user.following}} following</p>
-        <p>{{ user.public_repos }} repositories</p>
-      {% else %}
-      <p>No such user exists</p>
-        {% endif %}
-  
-        {% for repo in repos %}
-        <p>{{ repo.name }} - {{ repo.language }}</p>
-        
-        {% endfor %}
-  
-      <hr>
-    -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"></script>
+ 
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
