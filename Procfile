@@ -1,0 +1,1 @@
+web: gunicorn Githubfunc.wsgi --log-file -

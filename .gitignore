@@ -1,0 +1,3 @@
+gitenv/
+__pycache__/
+*.sqlite
