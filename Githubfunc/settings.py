@@ -25,7 +25,7 @@ SECRET_KEY = 'ip10och8+c8%#b$-2gdz4@=uy4spw18jg&uqk+_&8&+!h1n^ze'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -126,16 +126,16 @@ STATICFILES_DIRS=[
 STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
 
-if os.getcwd() == '/app':
-    import dj_database_url
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-    #Honor the 'X-forwarded-Proto' header for request.is_secure().
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# if os.getcwd() == '/app':
+#     import dj_database_url
+#     db_from_env = dj_database_url.config(conn_max_age=500)
+#     DATABASES['default'].update(db_from_env)
+#     #Honor the 'X-forwarded-Proto' header for request.is_secure().
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    #Allow all host headers
-    ALLOWED_HOSTS = ['gitscrapdiya-11.herokuapp.com']
-    DEBUG = True
+    # #Allow all host headers
+    # ALLOWED_HOSTS = ['gitscrap-diya11.herokuapp.com']
+    # DEBUG = True
 
     #Static asset configuration
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
