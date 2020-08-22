@@ -2,6 +2,12 @@
     background-color: #d8d8d8;
 }
 
+.footer-design {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;   
+}
 
 .button-design {
     background-color: #cf0191;
